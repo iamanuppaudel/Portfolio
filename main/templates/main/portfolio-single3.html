@@ -1,0 +1,59 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="page-title section pb-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="text-center">
+          <h1 class="text-capitalize mb-0 text-lg">{{project.title}}</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section portfolio-single">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-8">
+
+				<div class="row mt-4">
+					<div class="col-lg-6">
+						<div class="info">
+							<h5 class="mb-0">Category</h5>
+							<p>{% for i in project.category.all %} | {{i}} | {% endfor %}</p>
+						</div>
+
+						<div class="info">
+							<a href="{{project.github_link}}" class="btn btn-main btn-small">Source Code</a>
+						</div>
+					</div>
+
+					<div class="col-lg-6">
+						<div class="info">
+							<h5 class="mb-0">Year</h5>
+							<p>{{project.date_added | date:"Y"}}</p>
+						</div>
+
+						<div class="info">
+							<a href="{{project.demo_link}}" class="btn btn-main btn-small">Live Demo</a>
+						</div>
+					</div>
+				</div>
+				<br><br>
+				<div class="project-info">
+					<h3 class="mb-4">Description</h3>
+					<p> {{project.description | safe}}
+					</p>
+				</div>
+
+				
+			</div>
+		</div>
+	</div>
+</section>
+
+{% endblock content %}

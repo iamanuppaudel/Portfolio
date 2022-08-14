@@ -1,0 +1,102 @@
+
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<section class="section blog-post">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8">
+				<div class="row">
+					{% for blog in blogs %}
+					<div class="col-lg-6 col-md-6">						
+						<div class="post mb-5">
+							<a class="image-content" href="{% url 'blogdetail' blog.id %}">
+								<img src="{{blog.imageURL}}" alt="" class="img-fluid">
+							</a>
+
+							<div class="post-content">
+								<span class="date text-uppercase text-sm">{{blog.date_added | date:"D d M Y"}}</span>
+								<a href="{% url 'blogdetail' blog.id %}"><h4>{{blog.title}}</h4></a>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+
+				</div>
+			</div>
+
+			<div class="col-lg-4">
+				<div class="sidebar-widget mt-5 mt-lg-0">
+					<div class="widget mb-5 follow">
+						<h4 class="mb-4 widget-title">Socials:</h4>
+						<ul class="list-inline">
+							<li class="list-inline-item"><a href="#"><i class="ti-facebook"></i></a></li>
+							<li class="list-inline-item"><a href="#"><i class="ti-twitter"></i></a></li>
+							<li class="list-inline-item"><a href="#"><i class="ti-github"></i></a></li>
+							<li class="list-inline-item"><a href="#"><i class="ti-linkedin"></i></a></li>
+							<li class="list-inline-item"><a href="#"><i class="ti-dribbble"></i></a></li>
+						</ul>
+					</div>
+
+					<div class="widget mb-5">
+						<h4 class="mb-4 widget-title">Popular Posts</h4>
+						<ul class="list-unstyled">
+
+							{% for i in popularpost %}
+							<li class="d-flex mb-4">
+								<img src="{{ i.imageURL}}" alt="" class="img-fluid mr-3" style="width:50px; height:50px;">
+								<div class="post-body">
+									<a href="{% url 'blogdetail' i.id %}"><h5> {{i.title}}</h5></a>
+									
+									
+								</div>
+							</li>
+							
+							{% endfor %}
+						</ul>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-lg-12">
+				{% if is_paginated %}
+				<div class="pagination">
+					<ul class="list-inline d-block mx-auto">
+						{% if page_obj.has_previous %}
+						<li class="list-inline-item">
+							<a href="/blog/?page={{ page_obj.previous_page_number }}">Prev</a>
+						</li>
+						{% endif %}
+						{% for i in loop %}
+						{% if i == page_obj.number %}
+						<li class="active list-inline-item">
+							<a href="blog/?page={{i}}">
+								<span>{{i}}</span>
+							</a>
+						</li>
+						{% else %}
+						<li class="list-inline-item">
+							<a href="/blog/?page={{i}}">
+								<span>{{i}}</span>
+							</a>
+						</li>
+						{% endif %}
+						{% endfor %}
+						{% if page_obj.has_next %}
+						<li class="list-inline-item">
+							<a href="/blog/?page={{page_obj.next_page_number}}">Next</a>
+						</li>
+						{% endif %}
+					</ul>
+				</div>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock content %}

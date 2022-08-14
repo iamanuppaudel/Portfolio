@@ -1,0 +1,120 @@
+
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Banner Start -->
+<section class="section banner">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8">
+				 <h2 class="cd-headline clip is-full-width mb-4 ">
+				 	I am <br>
+                    <span class="cd-words-wrapper text-color">
+                        <b class="is-visible">Anup Paudel. </b>
+                        <b>a Developer.</b>
+                        
+                    </span>
+                </h2>
+                <p>I am a web developer and programmer living in Kathmandu, Nepal. I <br>make web applications, usually with Django.</p>
+			</div>
+            <div class="col-lg-4 col-6 mb-4">
+                <div class="image position-relative ">
+	               <img src="{% static 'images/portfolio/it.png' %}" alt="portfolio-image" class="img-fluid w-100 d-block">
+	            </div>   
+            </div>
+		</div>
+	</div>
+</section>
+
+<!-- Banner End -->
+
+<!-- POrtfolio start -->
+<section class="portfolio ">
+	<div class="container">
+		<div class="row mb-5">
+	      	<div class="col-10">
+		        <div class="btn-group btn-group-toggle " data-toggle="buttons">
+		          <label class="btn active ">
+		            <input type="radio" name="shuffle-filter" value="all" checked="checked" />All Projects
+		          </label>
+		          <label class="btn">
+		            <input type="radio" name="shuffle-filter" value="Web" />Web Development
+		          </label>
+		          
+		          <label class="btn">
+		            <input type="radio" name="shuffle-filter" value="ML" />Machine Learning
+		          </label>
+				  <label class="btn">
+		            <input type="radio" name="shuffle-filter" value="others" />Others
+		          </label>
+		           
+		        </div>
+	      	</div>
+    	</div>	
+
+		<div class="row shuffle-wrapper portfolio-gallery">
+			{% for project in projects %}
+			<div class="col-lg-4 col-6 mb-4 shuffle-item"  data-groups="[{% for i in project.category.all %} &quot;{{i.title}}&quot; {% endfor %}]">
+					<div class="position-relative inner-box">
+					<div class="image position-relative ">
+					 <img src="{{ project.imageURL }}" alt="portfolio-image" class="img-fluid w-100 d-block">
+					  <div class="overlay-box">
+						<div class="overlay-inner">
+						  <a class="overlay-content" href="{% url 'detailportfolio' project.id %}">
+							<h5 class="mb-0">{{project.title}}</h5>
+							
+							
+						  </a>
+						</div>
+					  </div> 
+				  </div>
+				</div>
+			</div>
+			{% endfor %}
+			
+	    </div>
+	</div>
+</section>
+<!-- Portfolio End -->
+
+<section class="section skills">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8">
+				<h3>More about me.</h3>
+				<p>I am reliable and trustworthy,
+					embraced with appropriate
+					management<br> and problem solving
+					skills and able to work on own
+					initiative or as part <br>of a team
+					competently.</p>
+					<div class="col-lg-4">
+						<ul ><strong>My Expertise:</strong>
+							<li>- HTML/CSS</li>
+							<li>- Python</li>
+							<li>- Django</li>
+							<li>- JavaScript</li>
+							<li>- Postgres</li>
+							<li>- Heroku</li>
+						</ul>
+					</div>
+					
+			</div>
+
+			<div class="col-lg-4">
+				<h3> Educational Background:</h3><br>
+				<div class="progress-bar-content">
+					<div class="progress-label d-flex align-items-center">
+		                <div class="progress-title">Bachelors of Science in Computer Science and Information Technology (BSc. CSIT)</div>
+	            	</div>
+					<div class="progress">
+						  <div class="progress-bar" data-percent="100"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- Skill end -->
+{% endblock content %}

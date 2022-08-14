@@ -1,0 +1,63 @@
+
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="section banner pb-lg-0">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-8 text-center">
+				<h2>My work is presented here, check them below.</h2>
+			</div>
+		</div>
+	</div>
+</section>
+<br>
+
+<section class=" portfolio ">
+	<div class="container">
+		<div class="row mb-5 justify-content-center">
+	      	<div class="col-10 text-center">
+		        <div class="btn-group btn-group-toggle " data-toggle="buttons">
+					<label class="btn active ">
+					  <input type="radio" name="shuffle-filter" value="all" checked="checked" />All Projects
+					</label>
+					<label class="btn">
+					  <input type="radio" name="shuffle-filter" value="Web" />Web Development
+					</label>
+					
+					<label class="btn">
+					  <input type="radio" name="shuffle-filter" value="ML" />Machine Learning
+					</label>
+					<label class="btn">
+					  <input type="radio" name="shuffle-filter" value="others" />Others
+					</label>
+					 
+				  </div>
+	      	</div>
+    	</div>	
+
+		<div class="row shuffle-wrapper portfolio-gallery">
+			{% for project in projects %}
+			<div class="col-lg-4 col-6 mb-4 shuffle-item"  data-groups="[{% for i in project.category.all %} &quot;{{i.title}}&quot; {% endfor %}]">
+					<div class="position-relative inner-box">
+					<div class="image position-relative ">
+					 <img src="{{ project.imageURL }}" alt="portfolio-image" class="img-fluid w-100 d-block">
+					  <div class="overlay-box">
+						<div class="overlay-inner">
+						  <a class="overlay-content" href="{% url 'detailportfolio' project.id %}">
+							<h5 class="mb-0">{{project.title}}</h5>
+							
+							
+						  </a>
+						</div>
+					  </div> 
+				  </div>
+				</div>
+			</div>
+			{% endfor %}
+  
+		</div>
+	</div>
+</section>
+{% endblock content %}

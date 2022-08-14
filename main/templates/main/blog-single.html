@@ -1,0 +1,80 @@
+
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="page-title section pb-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="text-center">
+          <h1 class="text-capitalize mb-0 text-lg">Blog Post</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section blog-post">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8">
+				<article class="single-post">
+					<img src="{{blogdetail.imageURL}}" alt="" class="img-fluid">
+
+					<div class="single-post-content mt-4">
+						<div class="post-meta mb-4">
+							<span class="text-black">Tags :</span>
+							<span>Design,</span>
+							<span>Development</span>
+
+							<span class="ml-3">-</span>
+							<span class="date">{{blogdetail.date_added | date:"D d M Y" }}</span>
+						</div>
+						
+						<h3>{{blogdetail.title}}</h3>
+
+						<p>
+							{{blogdetail.description | safe }}
+						</p>	
+					</div>
+				</article>
+			</div>
+
+			<div class="col-lg-4">
+				<div class="sidebar-widget mt-5 mt-lg-0">
+					<div class="widget mb-5 follow">
+						<h4 class="mb-4 widget-title">Socials:</h4>
+						<ul class="list-inline">
+							<li class="list-inline-item"><a href="#"><i class="ti-facebook"></i></a></li>
+							<li class="list-inline-item"><a href="#"><i class="ti-twitter"></i></a></li>
+							<li class="list-inline-item"><a href="#"><i class="ti-github"></i></a></li>
+							<li class="list-inline-item"><a href="#"><i class="ti-linkedin"></i></a></li>
+							<li class="list-inline-item"><a href="#"><i class="ti-dribbble"></i></a></li>
+						</ul>
+					</div>
+
+					<div class="widget mb-5">
+						<h4 class="mb-4 widget-title">Popular Posts</h4>
+						<ul class="list-unstyled">
+
+							{% for i in popularpost %}
+							<li class="d-flex mb-4">
+								<img src="{{ i.imageURL}}" alt="" class="img-fluid mr-3" style="width:50px; height:50px;">
+								<div class="post-body">
+									<a href="{% url 'blogdetail' i.id %}"><h5> {{i.title}}</h5></a>
+									
+									
+								</div>
+							</li>
+							
+							{% endfor %}
+						</ul>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock content %}

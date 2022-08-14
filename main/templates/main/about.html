@@ -1,0 +1,146 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Banner start -->
+<section class="section banner-3">
+	<div class="container">
+		<div class="row justify-content-center align-items-center">
+			<div class="col-lg-12">
+				<div class="profile mb-5">
+					<img src="{% static 'images/my-img.jpg' %}" alt="" class="img-fluid" style="width:100%; height:500px;">
+				</div>
+			</div>
+			<div class="col-lg-7">
+				<h2>Anup Paudel</h2>
+				<p class="lead mb-4">I create applications, usually with Django.</p>
+
+				<p class="mb-4">I was born in 1998. I'm 24 years old creative web developer, specializing in Web Development. I am reliable and trustworthy,
+					embraced with appropriate
+					management and problem solving
+					skills and able to work on own
+					initiative or as part of a team
+					competently. </p>
+
+				
+				<img src="images/signature.png" alt="" class="img-fluid">
+			</div>
+
+			<div class="col-lg-5">
+				<ul class="list-unstyled mt-3 mb-5 about-list">
+					<li><button class="btn btn-main" name="submit" type="submit">Download Resume</button></li>
+					<li></li><br>
+					<li>Socials:</li>
+					<li>
+						<a href="https://www.facebook.com/themefisher" target="_blank"><i class="ti-twitter mr-3"></i></a>
+						<a href="https://www.facebook.com/themefisher" target="_blank"><i class="ti-linkedin mr-3"></i></a>
+						<a href="https://www.facebook.com/themefisher" target="_blank"><i class="ti-github mr-3"></i></a>
+						<a href="https://www.facebook.com/themefisher" target="_blank"><i class="ti-facebook mr-3"></i></a>
+						<a href="https://www.facebook.com/themefisher" target="_blank"><i class="ti-dribbble mr-3"></i></a>
+						
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Banner End -->
+
+<!-- About start -->
+<section class="section about border-top border-bottom">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4 mb-5">
+				<h3 class="mb-2">Work Experiences.</h3>
+			</div>
+	
+			<div class="col-lg-8">
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="about-info mb-5">
+							<span>January 0000 - December 0000</span>
+							<h4 class="mb-3 mt-1">No work Experience</h4>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec bibendum mauris. Curabitur quis vehicula leo. Vivamus leo ipsum</p>
+						</div>
+						{% comment %} <div class="about-info">
+							<span>January 2015 - August 2018</span>
+							<h4 class="mb-3 mt-1">UI UX Designer at Envato</h4>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec bibendum mauris. Curabitur quis vehicula leo. Vivamus leo ipsum</p>
+						</div> {% endcomment %}
+					</div>
+
+					<div class="col-lg-6">
+						<div class="about-info mb-5">
+							<span>January 0000 - December 0000</span>
+							<h4 class="mb-3 mt-1">No work Experience</h4>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec bibendum mauris. Curabitur quis vehicula leo. Vivamus leo ipsum</p>
+						</div>
+						{% comment %} <div class="about-info">
+							<span>January 2015 - August 2018</span>
+							<h4 class="mb-3 mt-1">UI UX Designer at Softinfo</h4>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec bibendum mauris. Curabitur quis vehicula leo. Vivamus leo ipsum</p>
+						</div> {% endcomment %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- About End -->
+
+<section class="section skills">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8">
+				<h3>More about me.</h3>
+				<p>I am reliable and trustworthy,
+					embraced with appropriate
+					management<br> and problem solving
+					skills and able to work on own
+					initiative or as part <br>of a team
+					competently.</p>
+					<div class="col-lg-4">
+						<ul ><strong>My Expertise:</strong>
+							<li>- HTML/CSS</li>
+							<li>- Python</li>
+							<li>- Django</li>
+							<li>- JavaScript</li>
+							<li>- Postgres</li>
+							<li>- Heroku</li>
+						</ul>
+					</div>
+					
+			</div>
+
+			<div class="col-lg-4">
+				<h3> Educational Background:</h3><br>
+				<div class="progress-bar-content">
+					<div class="progress-label d-flex align-items-center">
+		                <div class="progress-title">Bachelors of Science in Computer Science and Information Technology (BSc. CSIT)</div>
+	            	</div>
+					<div class="progress">
+						  <div class="progress-bar" data-percent="100"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- Skill end -->
+<!-- Cta Start -->
+<section class="section-sm pt-0 cta">
+	<div class="container">
+		<div class="row align-items-center bg-dark p-5">
+			<div class="col-lg-8">
+				<h3 class="text-white mb-0">Want to discuss about any project?</h3>
+			</div>
+			<div class="col-lg-4 text-lg-right mt-5 mt-lg-0">
+				<a href="{% url 'contact' %}" class="btn btn-white">Contact me</a>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- Cta ENd -->
+{% endblock content %}

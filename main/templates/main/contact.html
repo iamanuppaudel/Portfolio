@@ -1,0 +1,86 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+<section class="page-title section pb-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="text-center">
+          <h1 class="text-capitalize mb-0 text-lg">Get in Touch</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- contact form start -->
+<section class="contact section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 mb-4 mb-lg-0 col-md-4">
+                <h4>Contact Info</h4>
+                <p>Contact me via email or fill up the form below to get in touch. </p>
+            </div>
+            <div class="col-lg-4 mb-4 mb-lg-0 col-md-4">
+                <h4>Address</h4>
+                <p>Simara, Bara, Nepal<br>Airport Road</p>
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <h4>Contact</h4>
+                 <p class="mb-0">anuppaudel1001@gmail.com</p>
+                <p class="mb-0">+977 xxxxxxxxxx</p>
+            </div>
+        </div>
+        <br><br>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="text-center mb-5 contact-title">
+                    <h2>Contact Me</h2>
+                </div>
+
+                <form id="contact-form" class="contact__form mt-5" >
+             <!-- form message -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="alert alert-success contact__msg" style="display: none" role="alert">
+                            Your message was sent successfully.
+                        </div>
+                    </div>
+                </div>
+                <!-- end message -->
+                <div class="form-row">
+                    <div class="col-lg-6">
+                        <div class="form-group mb-3">
+                            <input name="name" type="text" class="form-control" placeholder="Your Name">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group mb-3">
+                            <input name="name" type="text" class="form-control" placeholder="Your Subject">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <div class="form-group mb-3">
+                            <input name="email" type="email" class="form-control" placeholder="Email Address">
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                         <div class="form-group-2 mb-4">
+                            <textarea name="message" class="form-control" rows="6" placeholder="Your Message"></textarea>
+                        </div>
+
+                        <div class="text-center">
+                            <button class="btn btn-main"  type="submit">Send Message</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            </div>  
+        </div>
+    </div>
+</section>
+{% endblock content %}
